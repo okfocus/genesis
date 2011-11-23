@@ -1,4 +1,3 @@
-
 h1. genesis
 
 p. This script will set you up with the base development environment used at OKFocus. 
@@ -26,5 +25,5 @@ Additionally it will install the following Ruby gems:
 
 h2. Installing
 
-p. We're assuming a new computer. To install from your commandline: bash < <(curl -s https://raw.github.com/okfocus/genesis/genesis)
+p. We're assuming a new computer. To install from your shell: @bash < <(curl -s https://raw.github.com/okfocus/genesis/genesis)@
 
