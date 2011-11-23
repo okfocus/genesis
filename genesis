@@ -1,0 +1,131 @@
+#! /bin/bash
+# -*- coding: utf-8 -*-
+# based on the alpha CLI for vfiles https://gist.github.com/1161310
+
+
+echo "Welcome to OKFocus!"
+echo "This will install everything you need to get started with us."
+echo "First, we need to make sure you have some things installed."
+
+echo "Do you have a Github account? (y/n)"
+read GITHUB
+if [[ "$GITHUB" == "n" || "$GITHUB" == "no" ]]
+    open https://github.com/signup/free
+else
+    echo "Do you have Git and XCode installed? (y/n)"
+    read RESPONSE
+    if [[ "$RESPONSE" == "y" || "$RESPONSE" == "yes" ]]
+    then
+	echo "Configuring some stuff..."
+	echo "
+if [ -f ~/.bashrc ]; then
+   source ~/.bashrc
+fi
+" > ~/.bash_profile
+	source ~/.bash_profile
+	
+	echo "Checking for your SSH key. We'll make one for you if need be."
+	[[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
+	
+	echo "Paste this key into you Github account"
+	[[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
+	open https://github.com/account/ssh
+
+	echo "Installing Homebrew"
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
+	
+	echo "Updating Homebrew"
+	brew update
+
+	echo "Putting Homebrew earlier in your path" #ripped this off from thoughtbot
+	echo "
+export PATH='/usr/local/bin:$PATH'" >> ~/.bashrc
+	source ~/.bashrc
+
+	echo "Installing Postgres"
+	brew install postgres
+
+	echo "Installing Redis"
+	brew install redis
+
+	echo "Installing ImageMagick"
+	brew install imagemagick
+
+	echo "Installing RVM"
+	bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+	echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"' > /Users/whoami/.bashrc
+	echo "
+[[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'" >> ~/.bashrc
+	source ~/.bashrc
+	
+	echo "\n"
+	echo "Finished installing all the OS specific stuff. Let's setup Ruby now."
+	
+	echo "Instaling Ruby 1.9.2"
+	rvm install 1.9.2
+	
+	echo "Making Ruby 1.9.2 default"
+	rvm use 1.9.2 --default
+	
+	echo "Creating and adjusting your .gemrc"
+        echo "
+---
+update_sources: true
+sources:
+- http://gems.rubyforge.org/
+- http://gems.github.com
+benchmark: false
+backtrace: false
+verbose: true
+bulk_threshold: 1000
+gem: --no-ri --no-rdoc
+install: --no-ri --no-rdoc
+update: --no-ri --no-rdoc
+             " > ~/.gemrc
+
+	echo "Installing some of our favorite gems..."
+	
+	echo "Heroku"
+	gem install heroku
+	
+	echo "taps"
+	gem install taps
+
+	echo "foreman"
+	gem install taps
+
+	echo "gist"
+	gem install gist
+
+	echo "rails"
+	gem install rails -v=3.1.1
+
+	echo "sinatra"
+	gem install sinatra
+
+	echo "taps"
+	gem install taps
+	
+	echo "pg"
+	gem install pg
+
+	echo "lolcat"
+        gem install lolcat
+        
+	echo "Almost done! Would you like to make lolcat the defaut? (y/n)"
+        read LOLCAT
+        if [[ "$LOLCAT" == "y" || "$LOLCAT" == "yes" ]]
+        then
+            echo 'alias cat="lolcat"' >> ~/.bashrc                
+        else
+            echo "your loss..."
+        fi
+	echo "Your environment is set up and good to go!"
+	echo " <3 okfocus"
+    else
+	echo "Get Git here --> http://git-scm.com/download"
+	echo "You can download XCode from the app store"
+	echo "Try again after you've downloaded these!"
+	echo " <3 okfocus"
+    fi
+fi
