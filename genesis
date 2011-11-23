@@ -53,9 +53,7 @@ export PATH='/usr/local/bin:$PATH'" >> ~/.bashrc
 
 	echo "Installing RVM"
 	bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
-	echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"' > /Users/whoami/.bashrc
-	echo "
-[[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'" >> ~/.bashrc
+	echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"' > ~/.bashrc
 	source ~/.bashrc
 	
 	echo "\n"
@@ -85,14 +83,14 @@ update: --no-ri --no-rdoc
 
 	echo "Installing some of our favorite gems..."
 	
-	echo "Heroku"
+	echo "heroku"
 	gem install heroku
 	
 	echo "taps"
 	gem install taps
 
 	echo "foreman"
-	gem install taps
+	gem install foreman
 
 	echo "gist"
 	gem install gist
@@ -103,9 +101,6 @@ update: --no-ri --no-rdoc
 	echo "sinatra"
 	gem install sinatra
 
-	echo "taps"
-	gem install taps
-	
 	echo "pg"
 	gem install pg
 
