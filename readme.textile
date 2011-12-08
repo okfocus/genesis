@@ -19,6 +19,7 @@ Additionally it will install the following Ruby gems:
 * Taps
 * Gist
 * Rails (3.1.1)
+* Closure Compiler
 * Sinatra
 * pg
 * lolcat 
