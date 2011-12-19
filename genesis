@@ -9,12 +9,15 @@ echo "First, we need to make sure you have some things installed."
 
 echo "Do you have a Github account? (y/n)"
 read GITHUB
-if [[ "$GITHUB" == "n" || "$GITHUB" == "no" ]]; then
+if [ "$GITHUB" -eq "n"] 
+then
     open https://github.com/signup/free
+    exit
 else
     echo "Do you have Git and XCode installed? (y/n)"
     read RESPONSE
-    if [[ "$RESPONSE" == "y" || "$RESPONSE" == "yes" ]]; then
+    if [ "$RESPONSE" -eq "y"] 
+    then
 	      echo "Configuring some stuff..."
 	      echo "
 if [ -f ~/.bashrc ]; then
@@ -111,7 +114,8 @@ update: --no-ri --no-rdoc
         
 	      echo "Almost done! Would you like to make lolcat the defaut? (y/n)"
         read LOLCAT
-        if [[ "$LOLCAT" == "y" || "$LOLCAT" == "yes" ]]; then
+        if [ "$LOLCAT" -eq "y"]
+        then
             echo 'alias cat="lolcat"' >> ~/.bashrc                
         else
             echo "your loss..."
