@@ -26,5 +26,5 @@ Additionally it will install the following Ruby gems:
 
 h2. Installing
 
-p. We're assuming a new computer. To install from your shell: @bash < <(curl -s https://raw.github.com/okfocus/genesis/genesis)@
+p. We're assuming a new computer. To install from your shell: @bash < <(curl -s https://raw.github.com/okfocus/genesis/master/genesis)@
 
