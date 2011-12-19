@@ -97,8 +97,11 @@ update: --no-ri --no-rdoc
 	      echo "rails"
 	      gem install rails -v=3.1.1
 
-	      echo "sinatra"
-	      gem install sinatra
+	echo "closure compiler"
+	gem install closure-compiler
+
+	echo "sinatra"
+	gem install sinatra
 
 	      echo "pg"
 	      gem install pg
