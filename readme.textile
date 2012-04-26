@@ -9,9 +9,12 @@ It will create SSH keys and install the following:
 * Homebrew
 * Postgres
 * Redis
+* MongoDB
 * ImageMagick
 * RVM 
 * Ruby 1.9.2
+* Ruby 1.9.3
+* Node.js (most stable version)
 
 Additionally it will install the following Ruby gems:
 
