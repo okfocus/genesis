@@ -126,6 +126,9 @@ export PATH='/usr/local/bin:$PATH'" >> ~/.bashrc
 	  echo "Installing Redis"
 	  brew install redis
 
+	  echo "Installing MongoDB"
+	  brew install mongodb
+
 	  echo "Installing ImageMagick"
 	  brew install imagemagick
 
