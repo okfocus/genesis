@@ -202,7 +202,7 @@ update: --no-ri --no-rdoc
         echo "your loss..."
     fi
 
-    echo "Cool. Lets set up Node.js. We don't have to install NPM anymore because it ships with Node.js now."
+    echo "Cool. Lets set up Node.js and some Javascript stuff. We don't have to install NPM anymore because it ships with Node.js now."
 
     echo "Downloading the Node.js repo"
     git clone https://github.com/joyent/node.git ~/node
@@ -215,6 +215,12 @@ update: --no-ri --no-rdoc
     echo "Making and building Node.js"
     make
     sudo make install
+
+    echo "Installing Jasmine"
+    gem install jasmine
+
+    echo "Installing Closure Compiler"
+    brew install closure-compiler
     
 	  echo "Your environment is set up and good to go!"
 	  echo " <3 okfocus"
