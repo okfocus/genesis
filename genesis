@@ -206,7 +206,7 @@ update: --no-ri --no-rdoc
 
     echo "Downloading the Node.js repo"
     git clone https://github.com/joyent/node.git ~/node
-    cd node
+    cd ~/node
     
     echo "Configuring the stable version"
     git checkout v0.6.14
