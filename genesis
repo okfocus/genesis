@@ -6,12 +6,6 @@ echo "Welcome to OKFocus!"
 echo "This will install everything you need to get started with us."
 echo "First, we need to make sure you have some things installed."
 
-echo "Do you have a Github account? (y/n)"
-read GITHUB
-if [[ "$GITHUB" == "n" ]]; then
-    open https://github.com/signup/free
-    exit
-fi
 
 echo "Do you have Git and XCode installed? (y/n)"
 read RESPONSE
