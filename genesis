@@ -18,12 +18,6 @@ fi
 " > ~/.bash_profile
 	  source ~/.bash_profile
 	  
-	  echo "Checking for your SSH key. We'll make one for you if need be."
-	  [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
-	  
-	  echo "Paste this key into you Github account"
-	  [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
-	  open https://github.com/account/ssh
 
     echo "Adding stuff to your .gitconfig"
     echo '
